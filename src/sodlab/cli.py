@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 import sys
 
+from .data import prepare_coco8
 from .dataset import format_report, validate_yolo_dataset
 from .synthetic import SyntheticDatasetConfig, generate_dataset
 
@@ -23,6 +24,11 @@ def _build_parser() -> argparse.ArgumentParser:
     generate_parser.add_argument("--val", type=int, default=8)
     generate_parser.add_argument("--test", type=int, default=8)
     generate_parser.add_argument("--seed", type=int, default=42)
+
+    prepare_parser = subparsers.add_parser("prepare-coco8", help="Download and prepare the COCO8 dataset")
+    prepare_parser.add_argument("--output", default="data/raw")
+    prepare_parser.add_argument("--archive", help="Use an already downloaded coco8.zip")
+    prepare_parser.add_argument("--force", action="store_true")
 
     validate_parser = subparsers.add_parser("validate", help="Validate a YOLO dataset")
     validate_parser.add_argument("--data", required=True)
@@ -69,6 +75,11 @@ def main(argv: list[str] | None = None) -> int:
         )
         data_yaml = generate_dataset(config, args.output)
         print(f"Generated dataset: {data_yaml}")
+        return 0
+
+    if args.command == "prepare-coco8":
+        data_yaml = prepare_coco8(args.output, archive=args.archive, force=args.force)
+        print(f"Prepared COCO8 dataset: {data_yaml}")
         return 0
 
     if args.command == "validate":
