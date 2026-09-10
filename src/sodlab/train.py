@@ -19,6 +19,12 @@ def load_experiment_config(config_path: str | Path) -> tuple[dict[str, Any], Pat
         raise ValueError(f"Config must contain a YAML mapping: {path}")
 
     project_root = path.parent.parent if path.parent.name.lower() == "configs" else Path.cwd()
+    if "model" in data:
+        model_path = Path(str(data["model"])).expanduser()
+        if not model_path.is_absolute() and len(model_path.parts) == 1:
+            local_weight = project_root / "weights" / model_path
+            if local_weight.exists():
+                data["model"] = str(local_weight.resolve())
     if "data" in data:
         data_path = Path(str(data["data"])).expanduser()
         if not data_path.is_absolute():

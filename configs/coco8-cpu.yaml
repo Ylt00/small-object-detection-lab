@@ -1,0 +1,18 @@
+# Small real-data CPU baseline. COCO8 is for pipeline validation, not benchmarking.
+model: yolo11n.pt
+data: data/raw/coco8/data.yaml
+epochs: 10
+imgsz: 320
+batch: 4
+device: cpu
+workers: 0
+seed: 42
+deterministic: true
+project: runs/train
+name: coco8-cpu
+exist_ok: true
+plots: false
+amp: false
+verbose: false
+close_mosaic: 0
+

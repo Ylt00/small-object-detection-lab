@@ -8,7 +8,7 @@
 
 **数据准备 → 数据校验 → 基线训练 → 指标评估 → 消融实验 → GitHub 发布**
 
-> 当前阶段：`v0.1` 工程骨架与无网络烟雾测试。真实数据集和研究改进将在后续迭代中接入。
+> 当前阶段：`v0.2` 增加 COCO8 真实数据准备、数据完整性校验与 CPU 基线。
 
 ## 为什么从小目标检测开始
 
@@ -24,7 +24,7 @@
 - 可复现地生成 YOLO 格式的合成目标检测数据；
 - 校验图像、标签、类别 ID 和归一化边界框；
 - 统计小、中、大目标的分布；
-- 使用 Ultralytics YOLO 运行 CPU 烟雾训练；
+- 使用 Ultralytics YOLO 运行 CPU 烟雾训练；\n- 下载、校验并准备真实图片的 COCO8 数据集；
 - 在测试集上评估并导出指标；
 - 对图片、目录或视频运行推理；
 - 通过 GitHub Actions 自动执行单元测试和数据校验。
@@ -78,6 +78,16 @@ python -m pip install -e ".[train]"
 sodlab --help
 ```
 
+## 真实数据入门
+
+```powershell
+python -m sodlab.cli prepare-coco8 --output data/raw
+python -m sodlab.cli validate --data data/raw/coco8/data.yaml
+python -m sodlab.cli train --config configs/coco8-cpu.yaml
+```
+
+完整说明见 `docs/real-data-baseline.md`，本次实测结果见 `docs/experiments/coco8-cpu.md`。COCO8 只用于跑通真实数据流程，不能作为研究基准。
+
 ## 项目结构
 
 ```text
@@ -115,5 +125,4 @@ GitHub 适合发布代码、配置、文档和小型可复现结果。数据集�
 ## License
 
 MIT
-
 
