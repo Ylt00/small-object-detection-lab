@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/Ylt00/small-object-detection-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/Ylt00/small-object-detection-lab/actions/workflows/ci.yml)
 
-[GitHub 仓库](https://github.com/Ylt00/small-object-detection-lab) · [v0.1.0 Release](https://github.com/Ylt00/small-object-detection-lab/releases/tag/v0.1.0)
+[GitHub 仓库](https://github.com/Ylt00/small-object-detection-lab) · [v0.1.0 Release](https://github.com/Ylt00/small-object-detection-lab/releases/latest)
 
 一个面向研究生入门与科研复现的“小目标检测”项目模板。目标不是堆积模型代码，而是建立一条可靠的工作流：
 
@@ -125,4 +125,3 @@ GitHub 适合发布代码、配置、文档和小型可复现结果。数据集�
 ## License
 
 MIT
-
