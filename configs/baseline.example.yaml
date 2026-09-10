@@ -1,0 +1,15 @@
+# Replace data with a licensed, documented real dataset before running.
+model: yolo11n.pt
+data: data/processed/dataset.yaml
+epochs: 100
+imgsz: 640
+batch: 16
+device: 0
+workers: 4
+seed: 42
+deterministic: true
+project: runs/train
+name: baseline
+exist_ok: false
+plots: true
+amp: true

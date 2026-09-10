@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Data and generated artifacts
+data/
+runs/
+experiments/*
+!experiments/.gitkeep
+weights/
+*.pt
+*.onnx
+*.engine
+*.torchscript
+*.mlpackage
+
+# Secrets
+.env
+.env.*
+!.env.example

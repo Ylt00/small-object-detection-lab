@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "small-object-detection-lab"
+version = "0.1.0"
+description = "A reproducible small-object detection research and engineering template."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "yanglitong" }]
+dependencies = [
+    "numpy>=1.26,<3",
+    "opencv-python>=4.8,<6",
+    "PyYAML>=6,<7",
+]
+
+[project.optional-dependencies]
+train = [
+    "ultralytics>=8.3,<9",
+]
+dev = []
+
+[project.scripts]
+sodlab = "sodlab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

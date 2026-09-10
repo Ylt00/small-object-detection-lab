@@ -1,0 +1,16 @@
+# CPU-only pipeline smoke test. It validates code paths, not research accuracy.
+model: yolo11n.yaml
+data: data/synthetic/data.yaml
+epochs: 1
+imgsz: 96
+batch: 4
+device: cpu
+workers: 0
+seed: 42
+deterministic: true
+project: runs/train
+name: smoke
+exist_ok: true
+plots: false
+amp: false
+verbose: false
