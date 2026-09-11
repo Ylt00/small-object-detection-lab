@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/Ylt00/small-object-detection-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/Ylt00/small-object-detection-lab/actions/workflows/ci.yml)
 
-[GitHub 仓库](https://github.com/Ylt00/small-object-detection-lab) · [v0.1.0 Release](https://github.com/Ylt00/small-object-detection-lab/releases/latest)
+[GitHub 仓库](https://github.com/Ylt00/small-object-detection-lab) · [Latest Release](https://github.com/Ylt00/small-object-detection-lab/releases/latest)
 
 一个面向研究生入门与科研复现的“小目标检测”项目模板。目标不是堆积模型代码，而是建立一条可靠的工作流：
 
@@ -24,7 +24,8 @@
 - 可复现地生成 YOLO 格式的合成目标检测数据；
 - 校验图像、标签、类别 ID 和归一化边界框；
 - 统计小、中、大目标的分布；
-- 使用 Ultralytics YOLO 运行 CPU 烟雾训练；\n- 下载、校验并准备真实图片的 COCO8 数据集；
+- 使用 Ultralytics YOLO 运行 CPU 烟雾训练；
+- 下载、校验并准备真实图片的 COCO8 数据集；
 - 在测试集上评估并导出指标；
 - 对图片、目录或视频运行推理；
 - 通过 GitHub Actions 自动执行单元测试和数据校验。
