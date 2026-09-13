@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 import sys
 
+from . import __version__
 from .data import prepare_coco8
 from .dataset import format_report, validate_yolo_dataset
 from .synthetic import SyntheticDatasetConfig, generate_dataset
@@ -15,7 +16,9 @@ from .synthetic import SyntheticDatasetConfig, generate_dataset
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="sodlab", description="Small object detection utilities")
     subparsers = parser.add_subparsers(dest="command", required=True)
-
+    
+    version_parser = subparsers.add_parser("version", help="Print the package version")
+    
     generate_parser = subparsers.add_parser("generate", help="Generate the synthetic smoke dataset")
     generate_parser.add_argument("--output", default="data/synthetic")
     generate_parser.add_argument("--width", type=int, default=96)
@@ -63,7 +66,11 @@ def _build_parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = _build_parser().parse_args(argv)
-
+    
+    if args.command == "version":
+        print(__version__)
+        return 0
+   
     if args.command == "generate":
         config = SyntheticDatasetConfig(
             width=args.width,
